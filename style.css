@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;700&display=swap');
+
+:root {
+  --gold: #c9a646;       /* nomes dos produtos e texto do botão */
+  --grey-light: #cccccc; /* hover do botão */
+  --text-light: #fff;    /* valores dos produtos */
+  --card-bg: rgba(46, 42, 38, 0.75); /* cards mais transparentes */
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body e fundo */
+body {
+  font-family: 'Lato', sans-serif;
+  min-height: 100vh;
+  position: relative;
+  background: url('img/capela-sistina.jpg') center/cover no-repeat;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 223, 99, 0.25) 0%,
+    rgba(253, 250, 244, 0.6) 50%,
+    rgba(255, 223, 99, 0.15) 100%
+  );
+  z-index: 0;
+}
+
+/* Navbar */
+.navbar {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(to right, rgba(46, 42, 38, 0.9), rgba(46, 42, 38, 0.8));
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-family: 'Playfair Display', serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column; /* empilha o h1 e o link */
+  align-items: flex-start;
+}
+
+/* Importa fonte de assinatura natural do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.linkedin-link {
+  font-family: 'Great Vibes', cursive; /* assinatura natural */
+  font-weight: 400;
+  font-size: 0.90rem;      /* tamanho delicado */
+  color: var(--gold(181, 191, 71));
+  text-decoration: none;
+  margin-top: 0.2rem;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.linkedin-link,
+.linkedin-link:link,
+.linkedin-link:visited,
+.linkedin-link:hover,
+.linkedin-link:active {
+  color: #fff;            /* define a cor desejada (branco) */
+  text-decoration: none;  /* remove sublinhado */
+  transition: color 0.3s, transform 0.2s;
+}
+
+.linkedin-link:hover {
+  color: var(--grey-light); /* muda a cor no hover */
+  transform: scale(1.05);
+}
+
+
+
+.navbar h1 {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(white);
+}
+
+.navbar a {
+  color: var(white);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: var(--grey-light);
+}
+
+/* Produtos */
+.products-container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem;
+}
+
+.product {
+  background: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6), 0 0 10px rgba(255,223,99,0.2);
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  color: var(--text-light);
+}
+
+.product:hover {
+  transform: translateY(-8px) scale(1.03); /* card sobe e aumenta levemente */
+  box-shadow: 0 12px 35px rgba(0,0,0,0.7), 0 0 20px rgba(255,223,99,0.5);
+}
+
+
+.product img {
+  max-width: 80%;
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+  filter: brightness(0.85) contrast(1.1);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.product img:hover {
+  filter: brightness(0.95) contrast(1.2);
+  transform: scale(1.05); /* leve zoom na imagem */
+}
+
+.product h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+  color: var(--gold);
+}
+
+.product p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+/* Botões */
+button {
+  background: transparent;
+  color: var(--gold);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  color: var(--grey-light);
+  transform: scale(1.05);
+}
+
+/* Carrinho */
+.cart-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 2rem auto;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6), 0 0 15px rgba(255,223,99,0.2);
+  color: var(--text-light);
+}
+
+.cart-container h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding: 1rem 0;
+}
+
+.cart-item:last-child {
+  border: none;
+}
+
+.cart-total {
+  text-align: right;
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--grey-light);
+}
+
+/* ----------------------
+   Responsividade
+----------------------- */
+
+/* Tablets (768px e menor) */
+@media (max-width: 768px) {
+  .navbar a,
+.navbar a:link,
+.navbar a:visited,
+.navbar a:hover,
+.navbar a:active {
+  color: var(--gold);        /* dourado ou qualquer cor que quiser */
+  text-decoration: none;     /* remove sublinhado */
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: var(white);  /* muda a cor no hover */
+}
+
+
+  .navbar h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .products-container {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .product h2 {
+    font-size: 1.2rem;
+  }
+
+  .product p {
+    font-size: 1rem;
+  }
+}
+
+/* Celulares (480px e menor) */
+@media (max-width: 480px) {
+  .products-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .product {
+    padding: 0.8rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .cart-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .cart-container h2 {
+    font-size: 1.5rem;
+  }
+}
